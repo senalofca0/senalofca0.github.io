@@ -3,29 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sena Biriktir - Anasayfa</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Sena Biriktir - Kişisel Blog</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
-    <h1>Sena Biriktir</h1>
+    <h1>
+      Ben Sena, <span id="animated-text" class="fade-text"></span>
+    </h1>
     <nav>
       <ul>
-        <li><a href="#">Ana Sayfa</a></li>
-        <li><a href="#">Hakkımızda</a></li>
-        <li><a href="#">İletişim</a></li>
+        <li><a href="#anasayfa" class="active">Ana Sayfa</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#projeler">Projeler</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
       </ul>
     </nav>
   </header>
+
   <main>
-    <section class="hero">
+    <!-- Ana Sayfa -->
+    <section id="anasayfa" class="section">
       <h2>Hoşgeldiniz!</h2>
-      <p>Burada paranızı biriktirmenin yollarını bulabilirsiniz.</p>
-      <button>Başlayalım</button>
+      <p>Ben Sena, bir <span class="highlight">backend geliştiricisiyim</span>. Öğrenmeye ve yeni projeler geliştirmeye tutkuluyum.</p>
+      <p>Bu kişisel blog sayfamda projelerimi, CV'mi ve iletişim bilgilerimi bulabilirsiniz.</p>
+    </section>
+
+    <!-- CV Bölümü -->
+    <section id="cv" class="section">
+      <h2>Özgeçmiş (CV)</h2>
+      <p>Profesyonel bilgilerim, eğitimim ve deneyimlerim burada.</p>
+      <a href="Sena_Biriktir_CV.pdf" download class="btn">CV'mi İndir</a>
+    </section>
+
+    <!-- Projeler -->
+    <section id="projeler" class="section">
+      <h2>Projelerim</h2>
+      <ul class="project-list">
+        <li><strong>Proje 1:</strong> Kişisel blog sitesi geliştirdim. <em>HTML, CSS, JavaScript kullanıldı.</em></li>
+        <li><strong>Proje 2:</strong> ASP.NET MVC tabanlı öğrenci bilgi sistemi.</li>
+        <li><strong>Proje 3:</strong> Python ile veri analizi ve otomasyon projeleri.</li>
+      </ul>
+    </section>
+
+    <!-- İletişim -->
+    <section id="iletisim" class="section">
+      <h2>İletişim</h2>
+      <p>Bana aşağıdaki kanallardan ulaşabilirsiniz:</p>
+      <ul class="contact-list">
+        <li>📧 Email: <a href="mailto:sena@example.com">sena@example.com</a></li>
+        <li>🐙 GitHub: <a href="https://github.com/senalofca0" target="_blank" rel="noopener">github.com/senalofca0</a></li>
+        <li>🔗 LinkedIn: <a href="https://linkedin.com/in/senalofca0" target="_blank" rel="noopener">linkedin.com/in/senalofca0</a></li>
+      </ul>
     </section>
   </main>
+
   <footer>
     <p>© 2025 Sena Biriktir. Tüm hakları saklıdır.</p>
   </footer>
+
+  <script>
+    const texts = [
+      'developerim',
+      'backendciyim',
+      'öğreniyorum',
+      'proje geliştiriyorum'
+    ];
+    let index = 0;
+    const animatedText = document.getElementById('animated-text');
+
+    function showText() {
+      animatedText.style.opacity = 0;
+
+      setTimeout(() => {
+        animatedText.textContent = texts[index];
+        animatedText.style.opacity = 1;
+        index = (index + 1) % texts.length;
+      }, 600);
+    }
+
+    showText();
+    setInterval(showText, 2500);
+  </script>
 </body>
 </html>
+
